@@ -17,9 +17,10 @@ public class CalculatorTest {
     @Test
     public void shouldCalculate() {
         Calculator calculator = new Calculator();
-        calculator.setFirstNumber(1);
-        calculator.setSecondNumber(2);
-        int result = calculator.calculate();
-        assertThat(result, is(3));
+        calculator.setFirstNumber(1.0);
+        calculator.setOperation('+');
+        calculator.setSecondNumber(2.0);
+        double result = calculator.calculate();
+        assertThat(result, is(3.0));
     }
 }

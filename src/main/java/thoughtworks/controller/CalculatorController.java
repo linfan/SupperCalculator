@@ -21,6 +21,7 @@ public class CalculatorController {
     @RequestMapping(value = "/calculate", method = RequestMethod.POST)
     public String calculate(@ModelAttribute("SpringWeb") Calculator calculator, ModelMap model) {
         model.addAttribute("firstNumber", calculator.getFirstNumber());
+        model.addAttribute("operation", calculator.getOperation());
         model.addAttribute("secondNumber", calculator.getSecondNumber());
         model.addAttribute("result", calculator.calculate());
         model.addAttribute("calculator", calculator);

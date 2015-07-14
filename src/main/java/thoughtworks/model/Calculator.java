@@ -8,29 +8,39 @@
 package thoughtworks.model;
 
 
+import thoughtworks.tool.OperationFactory;
+
 public class Calculator {
 
-    private int firstNumber = 0;
+    private double firstNumber = 0;
+    private char operation = '+';
+    private double secondNumber = 0;
 
-    private int secondNumber = 0;
+    public char getOperation() {
+        return operation;
+    }
 
-    public int getFirstNumber() {
+    public void setOperation(char operation) {
+        this.operation = operation;
+    }
+
+    public double getFirstNumber() {
         return firstNumber;
     }
 
-    public void setFirstNumber(int firstNumber) {
+    public void setFirstNumber(double firstNumber) {
         this.firstNumber = firstNumber;
     }
 
-    public int getSecondNumber() {
+    public double getSecondNumber() {
         return secondNumber;
     }
 
-    public void setSecondNumber(int secondNumber) {
+    public void setSecondNumber(double secondNumber) {
         this.secondNumber = secondNumber;
     }
 
-    public int calculate() {
-        return firstNumber + secondNumber;
+    public double calculate() {
+        return OperationFactory.calculate(firstNumber, secondNumber, operation);
     }
 }
