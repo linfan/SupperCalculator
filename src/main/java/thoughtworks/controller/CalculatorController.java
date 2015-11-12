@@ -18,12 +18,21 @@ import thoughtworks.model.Calculator;
 @RequestMapping(value = "/")
 public class CalculatorController {
 
+    private double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
+    }
+
     @RequestMapping(value = "/calculate", method = RequestMethod.POST)
     public String calculate(@ModelAttribute("SpringWeb") Calculator calculator, ModelMap model) {
         model.addAttribute("firstNumber", calculator.getFirstNumber());
         model.addAttribute("operation", calculator.getOperation());
         model.addAttribute("secondNumber", calculator.getSecondNumber());
-        model.addAttribute("result", calculator.calculate());
+        model.addAttribute("result", round(calculator.calculate(), 10));
         model.addAttribute("calculator", calculator);
         return "index";
     }
