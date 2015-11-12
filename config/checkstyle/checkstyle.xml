@@ -22,7 +22,7 @@ page at http://checkstyle.sourceforge.net/config.html -->
           </pre>
         -->
         <property name="format"
-                  value="^(//| \*) Copyright (\([cC]\) )?[\d]{4}(\-[\d]{4})? (Inc\.).*$" />
+                  value="^(//| \*) Copyright (\([cC]\) )?[\d]{4}(\-[\d]{4})? .*$" />
         <property name="minimum" value="1" />
         <property name="maximum" value="10" />
         <property name="message" value="copyright is missing or malformed." />
